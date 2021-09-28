@@ -1,0 +1,55 @@
+<%- include('pages/header') %>
+   
+
+    <div class="py-5 bg-primary bg-opacity-10">
+        <div class="container-fluid container-sm py-5">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-3 py-5">
+                <div class="col">
+                    <a href="/books/categories/categorie?name=Esprit-saint" class="btn btn-outline-primary  d-flex shadow ">
+                        <h1>Esprit - saint</h1>
+                        <p><%= espritSaint %> </p>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/books/categories/categorie?name=Dieu" class="btn btn-outline-warning  d-flex shadow ">
+                        <h1>Dieu</h1>
+                        <p> <%=dieu %></p>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/books/categories/categorie?name=Amour" class="btn btn-outline-danger d-flex shadow">
+                        <h1> <i class="bi bi-heart"></i>Amour</h1>
+                        <p> <%= amour %></p>
+                    </a>
+                </div>
+                 <div class="col">
+                    <a href="/books/categories/categorie?name=Finance" class="btn btn-outline-success d-flex shadow">
+                        <h1>Finance</h1>
+                        <p><%= finance %></p>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/books/categories/categorie?name=Relation" class="btn btn-outline-info d-flex shadow">
+                        <h1>Relation</h1>
+                        <p><%= relation %></p>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/books/categories/categorie?name=Sante" class="btn btn-outline-dark d-flex shadow ">
+                        <h1> <i class="bi bi-heart"></i>Sante</h1>
+                        <p><%= sante %></p>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/books/categories/categorie?name=Sante" class="btn btn-outline-green d-flex shadow">
+                        <h1> <i class="bi bi-heart"></i>Sante</h1>
+                        <p><%= sante %></p>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('pages/footer') %>

@@ -1,0 +1,26 @@
+<%- include('pages/header') %>
+  <main class="py-4">
+  <div class="album py-5 bg-primary bg-opacity-10 ">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="m-auto">
+                <img class="bd-placeholder-img img "  width="400"  xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice" focusable="false"
+               src="/assets/firstPage/<%= book.author %>_<%= book.title  %>.jpg" alt="firstPage_<%= book.author  %>_<%= book.title  %>" />
+              </div>
+              <div class="card-body">
+                <book-title><%= book.title  %></book-title>
+                <h2 class="book-author"><%= book.author  %> </h2>
+
+                <p class="card-text book-description"> <%= book.description %> </p>
+
+               
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  <%- include('pages/footer') %>

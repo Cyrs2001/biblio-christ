@@ -1,0 +1,23 @@
+<%- include('pages/header') %>
+  <%- include ('pages/listBook') %>
+  <div class="container py-5 my-5">
+    <p>Livre de categorie <%= categorie%></p>
+  </div> 
+    <div class="container pt-4">
+      <div class="row row-cols-sm-2 ">
+        <div class=" d-flex justify-content-between align-items-center m-auto">
+          <a href="/books/categories/categorie?name=<%= categorie %>&page=<%= prevPage %>" id="prev"><button class="btn btn-primary" <% if(prevPage === undefined){%> disabled <%}%>> <i
+                  class="bi bi-chevron-left"></i> prev</button></a>
+          <p> page <%= page %>
+          </p>
+
+          <a href="/books/categories/categorie?name=<%= categorie %>&page=<%= nextPage %>" id="next"><button class="btn btn-primary" <% if(nextPage === undefined){%> disabled <%}%>>  next <i
+                  class="bi bi-chevron-right"></i> </button> </a>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+</main>
+    <%- include('pages/footer') %>

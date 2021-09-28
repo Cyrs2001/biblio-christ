@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="bibliotheque chretienne ">
+  <meta name="author" content="Carlos Yaovi Roland Sewa">
+
+  <link rel="icon" href="/assets/Sketchpad.png">
+
+  <title>
+    <%= title %>
+  </title>
+
+
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/bootstrap-icons-1.5.0/bootstrap-icons.css">
+
+</head>
+
+<body class=" h-100  bg-primary bg-opacity-10">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Fourth navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Biblio-Christ</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbars"
+        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbars">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link <% if(locals.nav !== undefined && nav === "acceuil"){ %> active  <% } %> "  aria-current="page" href="/">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <% if(locals.nav !== undefined && nav === "livres"){ %> active  <% } %> " href="/books/list">Livres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <% if(locals.nav !== undefined && nav === "categories"){ %> active  <% } %>" href="/books/categories">Categories</a>
+          </li>
+        </ul>
+        <form class="d-flex" action="/books/find" method="GET">
+          <input class="form-control" type="search" placeholder="Rechercher..." name="search"
+            style="border-top-right-radius:0; border-bottom-right-radius: 0;">
+          <button type="submit" class="btn bg-info search-btn" disabled>
+            <i class="bi bi-search"></i> </button>
+        </form>
+      </div>
+    </div>
+    </nav
