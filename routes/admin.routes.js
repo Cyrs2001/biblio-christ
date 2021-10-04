@@ -24,8 +24,8 @@ router.get('/add_page', controlleur.addBookPage)
 let multer = require('multer')
 let upload = multer();
 let fields = [
-    { name: 'file', maxCount: 1 },
-    { name: 'files', maxCount: 1 }
+    { name: 'picture', maxCount: 1 },
+    { name: 'document', maxCount: 1 }
   ]
 router.post('/addBook',upload.fields(fields), controlleur.addBook)
 

@@ -2,6 +2,8 @@
     <div class="pt-5">
         <form action="addBook" method="post" enctype="multipart/form-data"  style="height:  100%; max-width: 400px;" class="m-auto pt-5 text-center">
             <div class="pt-5">
+                <img src="/assets/icon.png" alt="logo">
+
                 <% if(message==='succes' ) {%>
                     <div class="text-succes list-group-item list-group-item-action list-group-item-succes">
                         sauvergarde reussi
@@ -34,44 +36,30 @@
                             <textarea name="description" id="description" placeholder="Description" style="width: 100%;"
                                 rows="5"></textarea>
                         </div>
-                        <div class="form">
-                            <input type="file" name="files" id="files" placeholder="Ajoutez le ficher pdf ici"
-                                style="width: 100%;">
+                        <div class="d-flex">
+                            <i class="bi bi-file-earmark-pdf" style="font-size: x-large;"></i>
+                            <input type="file" name="document" id="document"  style="width: 100%;" accept=".pdf">
                         </div>
-                        <div class="form">
-                            <input type="file" name="file" id="file" style="width: 100%;">
+                        <div class="d-flex">
+                            <i class="bi bi-file-earmark-image" style="font-size: x-large;"></i>
+                            <input type="file" name="picture" id="picture" style="width: 100%;" accept="image/*">
                         </div>
-                        <div class="form-control">
+                        <div class="form-control py-5">
                             <p style="text-align: start;">
                                 cochez les themes dont traite le livre
-                                <br><input type="checkbox" name="amour" id="amour"><label for="amour">amour</label>
-                                <br><input type="checkbox" name="espritSaint" id="espritSaint"><label
-                                    for="espritSaint">espritSaint</label>
-                                <br><input type="checkbox" name="dieu" id="dieu"><label for="dieu">dieu</label>
-                                <br><input type="checkbox" name="finance" id="finance"><label
-                                    for="finance">finance</label>
-                                <br><input type="checkbox" name="relation" id="relation"><label
-                                    for="relation">relation</label>
-                                <br><input type="checkbox" name="sante" id="sante"><label for="sante">sante</label>
+                                <br><input type="checkbox" name="Amour" id="Amour"><label for="Amour">Amour</label>
+                                <br><input type="checkbox" name="Esprit-saint" id="Esprit-saint"><label for="Esprit-saint">Esprit-Saint</label>
+                                <br><input type="checkbox" name="Dieu" id="Dieu"><label for="Dieu">Dieu</label>
+                                <br><input type="checkbox" name="Finance" id="Finance"><label for="Finance">Finance</label>
+                                <br><input type="checkbox" name="Relation" id="Relation"><label for="Relation">Relation</label>
+                                <br><input type="checkbox" name="Sante" id="Sante"><label for="Sante">Sante</label>
                             </p>
                         </div>
 
-                        <button type="submit" class="btn btn-primary  ">envoie <i
+                        <button type="submit" class="btn btn-primary mt-5">envoie <i
                                 class="bi bi-cursor-fill"></i></button>
         </form>
 
     </div>
 
-
-
-    <script>
-        let filePdf = document.querySelector('input[name="bookPdf"]');
-        let filePng = document.querySelector('input[name="firstPage"]');
-
-        filePdf.addEventListener('input', (e) => {
-            e.stopImmediatePropagation;
-            console.log("hello");
-            console.log(filePdf.value)
-        })
-    </script>
     <%- include ('../pages/footer') %>

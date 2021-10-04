@@ -27,7 +27,7 @@ module.exports.categories = async (req, res) => {
         let sante = await BookModel.find({ categorie: "Sante" }).count();
         let dieu = await BookModel.find({ categorie: "Dieu" }).count();
         let finance = await BookModel.find({ categorie: "Finance" }).count();
-        let espritSaint = await BookModel.find({ categorie: "esprit-saint" }).count();
+        let espritSaint = await BookModel.find({ categorie: "Esprit-saint" }).count();
         let relation = await BookModel.find({ categorie: "Relation" }).count();
         let nav = "categories";
         // Mariage , Jeunesse , Couple, Deuil

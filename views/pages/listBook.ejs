@@ -7,7 +7,7 @@
             <div class="card shadow-sm">
               <img class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg"
                 aria-label="Placeholder: Thumbnai" preserveAspectRatio="xMidYMid slice" focusable="false"
-                src="/assets/firstPage/<%= book.author  %>_<%= book.title  %>.jpg" alt="firstPage_<%= book.author  %>_<%= book.title  %>" />
+                src="<%= book.picture %>" alt="<%= book.document %>" />
               <div class="card-body">
                 <book-title><%= book.title  %></book-title>
                 <h2 class="book-author"><%= book.author  %> </h2>
@@ -17,7 +17,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a href="/books/book/<%=book._id %>"> <button type="button" class="btn btn-sm btn-outline-secondary"> <i class="bi bi-eye"></i> voir</button> </a>
-                    <a href="/assets/24278.pdf"> <button type="button" class="btn btn-sm btn-outline-secondary"> <i class="bi bi-download"></i> telecharger</button> </a>
+                    <a href="<%= book.document %>"> <button type="button" class="btn btn-sm btn-outline-secondary"> <i class="bi bi-download"></i> telecharger</button> </a>
                     <a href="#"> <button type="button" class="btn btn-sm btn-outline-secondary" disabled> <i class="bi bi-chat-dots"></i> avis</button> </a>
                   </div>
                 </div>

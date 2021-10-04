@@ -1,10 +1,8 @@
-let fs = require('fs');
-let { promisify } = require('util');
+
 let bookModel = require('../Model/book.schema');
 let adminModel = require('../Model/admin.schema');
-let { categoriesOnInBody } = require('../utils/utils')
+let { categoriesOnInBody, uploadFiles } = require('../utils/utils')
 
-let pipeline = promisify(require('stream').pipeline);
 
 
 
@@ -56,46 +54,31 @@ module.exports.addBookPage = (req, res) => {
 
 
 module.exports.addBook = async (req, res) => {
-    let filename;
-    if (req.file) {
-        try {
-            if (
-                req.file.detectedMimeType !== "images/jpg" &&
-                req.file.detectedMimeType !== "images/png" &&
-                req.file.detectedMimeType !== "images/jpeg"
-            ) throw Error("ficher invalid");
-            if (req.file.size > 500000) throw Error("max size");
-
-        } catch (error) {
-
-        }
-
-        filename = req.body.author + req.body.title + ".jpg"
-        await pipeline(
-            req.file.stream,
-            fs.createWriteStream(
-                `${__dirname}/../public/images/firstPages/${filename}`
-            )
-        )
-    }
-
-    console.log('req.files.file');
-    console.log(req.files.file[0].originalName);
-    console.log('req.files.files');
-    console.log(req.files.files[0].originalName);
-
-
     let { author, shortDescription, description } = req.body;
-    let categorie = categoriesOnInBody(req.body);
     let title = "Add Book . Biblio-christ"
+    let categorie = categoriesOnInBody(req.body);
+    let { pictureName, documentName, error } = uploadFiles(req);
 
-    try {
-        let newBook = await bookModel.create({ title: req.body.title, author, shortDescription, description, categorie })
-        let message = "succes"
-        res.locals = { title, message }
-        res.render('adminPages/addBook');
-    } catch (error) {
-
+    if (pictureName !== "" && documentName !== "") {
+        try {
+            let newBook = await bookModel.create({
+                title: req.body.title,
+                author,
+                shortDescription,
+                description,
+                categorie,
+                picture: "/assets/images/firstPages/" + pictureName,
+                document: "/assets/pdf/books/" + documentName
+            })
+            let message = "succes"
+            res.locals = { title, message }
+            res.render('adminPages/addBook');
+        } catch (error) {
+            let message = "echec";
+            res.locals = { title, message, error }
+            res.render('adminPages/addBook');
+        }
+    } else{
         let message = "echec";
         res.locals = { title, message, error }
         res.render('adminPages/addBook');

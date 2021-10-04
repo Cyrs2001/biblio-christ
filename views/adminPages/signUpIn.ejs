@@ -2,10 +2,12 @@
 
 <div class="text-center py-5">
 <main class="form-signin py-5">
+
+  
     <form action="/admin<%= action %>" method="POST">
 
       <h1 class="h3 mb-3 fw-normal pt-5"> <%= formTitle %></h1>
-      
+      <img src="/assets/icon.png" alt="logo">
       <% if(locals.message && message.type === "succes"){ %>
         <div class="text-succes"> <%= message.content %> </div>
         <% } %>

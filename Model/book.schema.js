@@ -27,6 +27,12 @@ let bookSchema = new mongoose.Schema({
     totalDowload :{
         type: Number,
         default :0
+    },
+    picture :{
+        type: String
+    },
+    document :{
+        type: String
     }
 })
 bookModel = mongoose.model('book', bookSchema);
