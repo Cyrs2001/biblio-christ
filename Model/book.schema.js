@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 let bookSchema = new mongoose.Schema({
     title:{
-        type : String
+        type : String,
+        unique: true
     },
     author:{
         type : String,
@@ -14,7 +15,7 @@ let bookSchema = new mongoose.Schema({
     },
     shortDescription :{
         type: String,
-        maxlength: 50,
+        maxlength: 200,
         minlength: 10    
     },
     comment:{

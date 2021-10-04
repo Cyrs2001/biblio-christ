@@ -1,23 +1,15 @@
 let BookModel = require('../Model/book.schema')
 let url = require('url')
+let { prevNextpage } = require('../utils/utils')
 const BOOK_BY_PAGE = 6;
 
-let prevNextpage = (page, totalBook) => {
-    let prev, next;
-    totalPage = Math.ceil(totalBook / BOOK_BY_PAGE);
-    prev = page - 1;
-    next = page + 1;
-    if (prev == 0) prev = undefined;
-    if (next > totalPage) next = undefined;
-    return [prev, next]
-}
+
 
 module.exports.list = async (req, res) => {
+    let page = Number(url.parse(req.url, true).query.page) || 1;
+    let title = "Tous les livres · page " + page;
+    let totalBook = await BookModel.count();
     try {
-
-        let page = Number(url.parse(req.url, true).query.page) || 1;
-        let title = "Tous les livres · page " + page;
-        let totalBook = await BookModel.count()
         let books = await BookModel.find().limit(BOOK_BY_PAGE).skip((page - 1) * BOOK_BY_PAGE);
         let [prevPage, nextPage] = prevNextpage(page, totalBook);
         let nav = "livres"
@@ -29,9 +21,8 @@ module.exports.list = async (req, res) => {
 }
 
 module.exports.categories = async (req, res) => {
-
+    let title = 'Categories des livres . Biblio-Christ';
     try {
-        let title = 'Categories des livres . Biblio-Christ';
         let amour = await BookModel.find({ categorie: "Amour" }).count();
         let sante = await BookModel.find({ categorie: "Sante" }).count();
         let dieu = await BookModel.find({ categorie: "Dieu" }).count();
@@ -39,7 +30,7 @@ module.exports.categories = async (req, res) => {
         let espritSaint = await BookModel.find({ categorie: "esprit-saint" }).count();
         let relation = await BookModel.find({ categorie: "Relation" }).count();
         let nav = "categories";
-        // Mariage , Jeunesse , Couple, Deuil,  
+        // Mariage , Jeunesse , Couple, Deuil
         res.locals = { title, amour, sante, dieu, finance, espritSaint, relation, nav };
         res.render('categories');
     } catch (e) {

@@ -1,0 +1,77 @@
+<%- include ('../pages/header') %>
+    <div class="pt-5">
+        <form action="addBook" method="post" enctype="multipart/form-data"  style="height:  100%; max-width: 400px;" class="m-auto pt-5 text-center">
+            <div class="pt-5">
+                <% if(message==='succes' ) {%>
+                    <div class="text-succes list-group-item list-group-item-action list-group-item-succes">
+                        sauvergarde reussi
+                    </div>
+                    <% } else if(message === "echec") {%>
+                        <div class="text-danger list-group-item list-group-item-action list-group-item-danger">echec de la sauvergarde <br>
+                            <%= error %>
+                        </div>
+                        <% }else {} %>
+            </div>
+                        <div class="pt-5 form-text">
+                            <h1>Ajout de livre</h1>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" id="title" name="title" placeholder="Titre" class="w-100 form-control">
+                            <label for="title">Titre</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" id="author" name="author" placeholder="Autheur"
+                                class="w-100 form-control">
+                            <label for="author">Autheur</label>
+                        </div>
+
+                        <div class="form">
+                            <textarea name="shortDescription" id="shortDescription" placeholder="short Description"
+                                style="width: 100%;" maxlength="200" rows="5"></textarea>
+                        </div>
+                        <div class="form">
+                            <textarea name="description" id="description" placeholder="Description" style="width: 100%;"
+                                rows="5"></textarea>
+                        </div>
+                        <div class="form">
+                            <input type="file" name="files" id="files" placeholder="Ajoutez le ficher pdf ici"
+                                style="width: 100%;">
+                        </div>
+                        <div class="form">
+                            <input type="file" name="file" id="file" style="width: 100%;">
+                        </div>
+                        <div class="form-control">
+                            <p style="text-align: start;">
+                                cochez les themes dont traite le livre
+                                <br><input type="checkbox" name="amour" id="amour"><label for="amour">amour</label>
+                                <br><input type="checkbox" name="espritSaint" id="espritSaint"><label
+                                    for="espritSaint">espritSaint</label>
+                                <br><input type="checkbox" name="dieu" id="dieu"><label for="dieu">dieu</label>
+                                <br><input type="checkbox" name="finance" id="finance"><label
+                                    for="finance">finance</label>
+                                <br><input type="checkbox" name="relation" id="relation"><label
+                                    for="relation">relation</label>
+                                <br><input type="checkbox" name="sante" id="sante"><label for="sante">sante</label>
+                            </p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary  ">envoie <i
+                                class="bi bi-cursor-fill"></i></button>
+        </form>
+
+    </div>
+
+
+
+    <script>
+        let filePdf = document.querySelector('input[name="bookPdf"]');
+        let filePng = document.querySelector('input[name="firstPage"]');
+
+        filePdf.addEventListener('input', (e) => {
+            e.stopImmediatePropagation;
+            console.log("hello");
+            console.log(filePdf.value)
+        })
+    </script>
+    <%- include ('../pages/footer') %>
