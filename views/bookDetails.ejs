@@ -4,21 +4,30 @@
     <div class="container">
       <div class="row">
           <div class="col">
-            <div class="card shadow-sm">
-              <div class="m-auto">
-                <img class="bd-placeholder-img img "  width="400"  xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false"
-                src="<%= book.picture %>" alt="<%= book.document %>" />
+            <% if(locals.book != undefined ) { %>
+              <div class="card shadow-sm">
+                <div class="m-auto">
+                  <img class="bd-placeholder-img img "  width="400"  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid slice" focusable="false"
+                  src="<%= book.picture %>" alt="<%= book.document %>" />
+                </div>
+                <div class="card-body">
+                  <book-title><%= book.title  %></book-title>
+                  <h2 class="book-author"><%= book.author  %> </h2>
+  
+                  <p class="card-text book-description"> <%= book.description %> </p>
+  
+                 
+                </div>
               </div>
-              <div class="card-body">
-                <book-title><%= book.title  %></book-title>
-                <h2 class="book-author"><%= book.author  %> </h2>
-
-                <p class="card-text book-description"> <%= book.description %> </p>
-
-               
-              </div>
-            </div>
+              <% }else {%>
+                
+                <div class="h-100 pt-5">
+                  <div class="d-flex align-items-center justify-content-center pt-5">
+                    <p>LE livre que vous cherher n'existe pas ou a ete deja retirer de notre site</p>
+                  </div>
+                </div>
+                <% } %>
           </div>
       </div>
     </div>
