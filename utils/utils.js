@@ -16,12 +16,12 @@ module.exports.prevNextpage = (page, totalBook) => {
 }
 module.exports.categoriesOnInBody = (body) => {
     let categorie = []
-    if (body.amour) categorie.push("Amour")
-    if (body.espritSaint) categorie.push("Esprit-saint")
-    if (body.dieu) categorie.push("Dieu")
-    if (body.finance) categorie.push("Finance")
-    if (body.relation) categorie.push("Relation")
-    if (body.sante) categorie.push("Sante")
+    if (body.Amour) categorie.push("Amour")
+    if (body.EspritSaint) categorie.push("Esprit-saint")
+    if (body.Dieu) categorie.push("Dieu")
+    if (body.Finance) categorie.push("Finance")
+    if (body.Relation) categorie.push("Relation")
+    if (body.Sante) categorie.push("Sante")
 
     return categorie;
 }
@@ -61,5 +61,5 @@ module.exports.uploadFiles = async (req) => {
             `${__dirname}/../public/pdf/books/${documentName}`
         )
     )
-    return true
+    return result
 }
