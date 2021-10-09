@@ -57,9 +57,10 @@ module.exports.addBook = async (req, res) => {
     let { author, shortDescription, description } = req.body;
     let title = "Add Book . Biblio-christ"
     let categorie = categoriesOnInBody(req.body);
-    let { pictureName, documentName, error } = uploadFiles(req);
+    let { pictureName, documentName, error } = await uploadFiles(req);
 
-    if (pictureName !== "" && documentName !== "") {
+    if (pictureName !== "" && documentName !== "" 
+       && pictureName !== undefined && documentName !== undefined) {
         try {
             let newBook = await bookModel.create({
                 title: req.body.title,
