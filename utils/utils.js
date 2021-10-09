@@ -47,6 +47,8 @@ module.exports.uploadFiles = async (req) => {
     let imageExtention = req.files.picture[0].detectedFileExtension
     let pictureName = (req.body.author).toUpperCase() + "-" + (req.body.title).toLowerCase() + imageExtention
     let documentName = (req.body.author).toUpperCase() + "-" + (req.body.title).toLowerCase() + ".pdf"
+    result.pictureName = pictureName
+    result.documentName = documentName
     //save image
     await pipeline(
         req.files.picture[0].stream,
