@@ -85,3 +85,17 @@ module.exports.addBook = async (req, res) => {
         res.render('adminPages/addBook');
     }
 }
+module.exports.deleteBook = async(req, res) => {
+    let title = "Add Book . Biblio-Christ"
+    try{
+    await bookModel.deleteOne()
+    let message = "Bien effacer"
+    res.locals = {title, message}
+        res.render('adminPages/addBook')
+        }catch(e){
+            let message = "Echec"
+            res.locals = {title, message}
+            res.render('adminPages/addBook')
+            }
+    
+}
