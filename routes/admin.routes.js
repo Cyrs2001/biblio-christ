@@ -30,4 +30,5 @@ let fields = [
   ]
 router.post('/addBook',upload.fields(fields), controlleur.addBook)
 
+router.get('/deleteBook', controlleur.deleteBook)
 module.exports = router;
